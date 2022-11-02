@@ -1,4 +1,5 @@
 import os
+import argparse
 import openai
 import sys
 
@@ -37,12 +38,17 @@ def answer_prompt(mode, request_prompt):
   answer_text = response['choices'][0]['text']
   return answer_text
 
-try:
-  mode = int(sys.argv[1])
-except:
-  mode = -1
+parser = argparse.ArgumentParser(
+                    prog = 'Answer Machine',
+                    description = 'Wrapper around GPT-3 API. Get answers to questions, explanations and more.',
+                    epilog = 'Usage:\npython complete-prompt.py $MODE $PROMPT\nModes: \n1 - QUESTION\n2 - EXPLANATION\n3 - TUTORIAL')
 
-request_prompt = sys.argv[2]
+parser.add_argument('mode', metavar='N', type=int,
+                    help='prompt mode. An int from 0 to 3 (0 for free prompt).')
+parser.add_argument('prompt')
 
+args = parser.parse_args()
+mode = args.mode
+request_prompt = args.prompt
 final_answer = answer_prompt(mode, request_prompt)
 print(final_answer)
