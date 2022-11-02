@@ -12,7 +12,7 @@ export OPENAI_API_KEY=$YOUR_KEY
 
 `python3 complete-prompt.py 1 'What were the greatest technological achievements of the Ottoman Empire?'`
 
-### Modes
+### Modes
 
 - 1: Question (provide a question as prompt, obtain an answer).
 - 2: Explanation (provide a topic or question, the prompt asks for a summary/explanation as an essay).
