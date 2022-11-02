@@ -43,9 +43,9 @@ parser = argparse.ArgumentParser(
                     description = 'Wrapper around GPT-3 API. Get answers to questions, explanations and more.',
                     epilog = 'Usage:\npython complete-prompt.py $MODE $PROMPT\nModes: \n1 - QUESTION\n2 - EXPLANATION\n3 - TUTORIAL')
 
-parser.add_argument('mode', metavar='N', type=int,
-                    help='prompt mode. An int from 0 to 3 (0 for free prompt).')
-parser.add_argument('prompt')
+parser.add_argument('mode', metavar='mode', type=int,
+                    help='Prompt mode. An int from 0 to 3 (0 for free prompt).')
+parser.add_argument('prompt', help="A text prompt for GPT-3")
 
 args = parser.parse_args()
 mode = args.mode
